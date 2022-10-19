@@ -12,7 +12,7 @@ class PessoaDAO extends DAO
         parent::__construct();       
     }
 
-    public function insert(PessoaModel $model)
+    public function insert($model)
     {
         $sql = "INSERT INTO pessoa (nome, cpf, data_nascimento) VALUES (?, ?, ?) ";
 
@@ -27,7 +27,7 @@ class PessoaDAO extends DAO
     }
 
 
-    public function update(PessoaModel $model)
+    public function update($model)
     {
         $sql = "UPDATE pessoa SET nome=?, cpf=?, data_nascimento=? WHERE id=? ";
 
@@ -59,7 +59,7 @@ class PessoaDAO extends DAO
         $stmt->bindValue(1, $id);
         $stmt->execute();
 
-        return $stmt->fetchObject("App\Model\PessoaModel");
+        return $stmt->fetchObject("PessoaModel");
     }
 
     public function delete(int $id)
